@@ -1,4 +1,4 @@
-import {User} from '../models/user';
+import { User } from '../models/user';
 
 const usersMock = [{
         id: '1',
@@ -29,7 +29,7 @@ const findByIdAndUpdate = (id: string, newUser: User) =>
         return user;
     });
 
-exports.getUser = async function (req, res) {
+export const getUser = async (req, res) => {
     const {id} = req.params;
     try {
         const user = await findById(id);
@@ -39,7 +39,7 @@ exports.getUser = async function (req, res) {
     }
 };
 
-exports.createUser = async function (req, res) {
+export const createUser = async (req, res) => {
     const { id, login, password, age, isDeleted } = req.body;
     const newUser = { id, login, password, age, isDeleted };
     try {
@@ -50,7 +50,7 @@ exports.createUser = async function (req, res) {
     }
 };
 
-exports.updateUser = async function (req, res) {
+export const updateUser = async (req, res) => {
     const {id} = req.params;
     try {
         const updatedUser = await findByIdAndUpdate(id, req.body);
@@ -60,7 +60,7 @@ exports.updateUser = async function (req, res) {
     }
 };
 
-exports.getAutoSuggestUsers = async function (req, res) {
+export const getAutoSuggestUsers = async (req, res) => {
     const { loginSubstring, limit } = req.query;
     try {
         const autoSuggestUsers = usersMock.filter(user => (user.login).includes(loginSubstring));
@@ -73,7 +73,7 @@ exports.getAutoSuggestUsers = async function (req, res) {
     }
 };
 
-exports.deleteUser = async function (req, res) {
+export const deleteUser = async (req, res) => {
     const { id } = req.params;
     try {
         const user = await findById(id);

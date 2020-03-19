@@ -1,9 +1,8 @@
 import express from 'express';
+import { usersRouts } from './routes/users';
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
-
-const usersRouts = require('./routes/users');
 
 app.use(express.json());
 
