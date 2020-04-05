@@ -31,7 +31,6 @@ const findByIdAndUpdate = (id: string, newUser: User) =>
 
 export const getUser = async (req, res) => {
     const {id} = req.params;
-    console.log("jjj");
     try {
         const user = await findById(id);
         return res.json(user);
