@@ -7,7 +7,7 @@ import {
     createUser,
     updateUser,
     deleteUser,
-} from '../controllers/users';
+} from '../services/users';
 
 const validator = createValidator();
 const schema = Joi.object({
@@ -15,8 +15,6 @@ const schema = Joi.object({
 });
 
 const bodySchema = Joi.object({
-    id: Joi.string()
-        .required(),
     login: Joi.string()
         .required(),
     password: Joi.string()

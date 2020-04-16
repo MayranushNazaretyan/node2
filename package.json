@@ -43,6 +43,9 @@
     "joi": "^14.3.1",
     "lodash": "^4.17.15",
     "morgan": "^1.9.1",
-    "tsc-watch": "^4.2.3"
+    "pg": "^8.0.2",
+    "reflect-metadata": "^0.1.13",
+    "tsc-watch": "^4.2.3",
+    "typeorm": "^0.2.24"
   }
 }
