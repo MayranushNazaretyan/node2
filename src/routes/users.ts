@@ -7,6 +7,7 @@ import {
     createUser,
     updateUser,
     deleteUser,
+    upload,
 } from '../services/users';
 
 const validator = createValidator();
@@ -36,5 +37,6 @@ router.get('/', getAutoSuggestUsers);
 router.post('/', validator.body(bodySchema), createUser);
 router.put('/:id', validator.params(schema), validator.body(bodySchema), updateUser);
 router.delete('/:id', validator.params(schema), deleteUser);
+router.post('/upload', upload);
 
 export const usersRouts = router;

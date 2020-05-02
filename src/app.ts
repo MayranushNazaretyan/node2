@@ -5,8 +5,22 @@ import fs from 'fs';
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import { User } from './models/user';
+import fileUpload from "express-fileupload";
+import cors from "cors";
+import bodyParser from "body-parser";
+import morgan from "morgan";
 
 const app = express();
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}));
+
+// add other middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
 const port = Number(process.env.PORT) || 3000;
 
 createConnection({
