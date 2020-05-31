@@ -1,16 +1,17 @@
 import express from 'express';
 import { usersRouts } from './routes/users';
 import { groupRouts } from './routes/group';
+import { authRouts } from './routes/auth';
 import csv from 'csvtojson';
 import fs from 'fs';
 import 'reflect-metadata';
 import { createConnection, getManager } from 'typeorm';
 import { User } from './models/user';
-import fileUpload from "express-fileupload";
-import cors from "cors";
-import bodyParser from "body-parser";
-import morgan from "morgan";
-import { Group, Permission } from "./models/group";
+import fileUpload from 'express-fileupload';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import { Group, Permission } from './models/group';
 
 const app = express();
 // enable files upload
@@ -52,6 +53,7 @@ createConnection({
         app.use(express.json());
         app.use('/user/', usersRouts);
         app.use('/group/', groupRouts);
+        app.use('/', authRouts);
         app.listen(port, err => {
             if (err) {
                 return console.error(err);
