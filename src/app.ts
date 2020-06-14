@@ -12,8 +12,13 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import { Group, Permission } from './models/group';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerDocument } from './swagger/swagger';
 
 const app = express();
+
+app.use('/src-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // enable files upload
 app.use(fileUpload({
     createParentPath: true

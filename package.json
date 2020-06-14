@@ -48,7 +48,11 @@
     "morgan": "^1.10.0",
     "pg": "^8.0.2",
     "reflect-metadata": "^0.1.13",
+    "swagger": "^0.7.5",
+    "swagger-cli": "^4.0.3",
+    "swagger-ui-express": "^4.1.4",
     "tsc-watch": "^4.2.3",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.24",
+    "yamljs": "^0.3.0"
   }
 }
