@@ -33,11 +33,11 @@ const bodySchema = Joi.object({
 
 const router = express.Router();
 
-router.get('/:id', validator.params(schema), AuthorizeHeader, getUser);
-router.get('/', AuthorizeHeader, getAutoSuggestUsers);
-router.post('/', validator.body(bodySchema), AuthorizeHeader, createUser);
-router.put('/:id', validator.params(schema), validator.body(bodySchema), AuthorizeHeader, updateUser);
-router.delete('/:id', validator.params(schema), AuthorizeHeader, deleteUser);
+router.get('/:id', validator.params(schema), getUser);
+router.get('/', getAutoSuggestUsers);
+router.post('/', validator.body(bodySchema), createUser);
+router.put('/:id', validator.params(schema), validator.body(bodySchema), updateUser);
+router.delete('/:id', validator.params(schema), deleteUser);
 router.post('/upload', AuthorizeHeader, upload);
 
 export const usersRouts = router;

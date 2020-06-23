@@ -5,8 +5,11 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "tsc && node dist/app.js",
-    "start:watch": "tsc-watch --target es2017 --outDir ./dist --onSuccess \"node .\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:watch": "SET NODE_ENV=dev& tsc-watch --target es2017 --outDir ./dist --onSuccess \"node .\"",
+    "test": "SET NODE_ENV=test& jest --detectOpenHandles"
+  },
+  "jest": {
+    "verbose": true
   },
   "repository": {
     "type": "git",
@@ -48,7 +51,11 @@
     "morgan": "^1.10.0",
     "pg": "^8.0.2",
     "reflect-metadata": "^0.1.13",
+    "swagger": "^0.7.5",
+    "swagger-cli": "^4.0.3",
+    "swagger-ui-express": "^4.1.4",
     "tsc-watch": "^4.2.3",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.24",
+    "yamljs": "^0.3.0"
   }
 }
