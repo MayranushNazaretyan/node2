@@ -5,8 +5,11 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "tsc && node dist/app.js",
-    "start:watch": "tsc-watch --target es2017 --outDir ./dist --onSuccess \"node .\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:watch": "SET NODE_ENV=dev& tsc-watch --target es2017 --outDir ./dist --onSuccess \"node .\"",
+    "test": "SET NODE_ENV=test& jest --detectOpenHandles"
+  },
+  "jest": {
+    "verbose": true
   },
   "repository": {
     "type": "git",
